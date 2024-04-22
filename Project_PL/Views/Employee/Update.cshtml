@@ -1,0 +1,40 @@
+﻿@model CreateAndUpdateEmployeeViewModel
+
+<div class="row">
+    <div class="col-6">
+        <form asp-controller="Employee" asp-action="Update" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Id" class="form-label">Employee Id</label>
+                <input asp-for="@Model.Id" value="@Model.Id" class="form-control" readonly>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Name" class="form-label">Employee Name</label>
+                <input asp-for="@Model.Name" value="@Model.Name" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Address" class="form-label">Address</label>
+                <input asp-for="@Model.Address" value="@Model.Address" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Salary" class="form-label">Salary</label>
+                <input asp-for="@Model.Salary" value="@Model.Salary" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.HiringDate" class="form-label">HiringDate</label>
+                <input asp-for="@Model.HiringDate" class="form-control" >
+            </div>
+            <div class="mb-3">
+                <label asp-for="DepartmentId" class="form-label">Department</label>
+                <select asp-for="DepartmentId" asp-items="@Model.Departments" class="form-control">
+                    <option>--- Select Department ---</option>
+                </select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a asp-action="Index" class="btn btn-dark">Back To List</a>
+        </form>
+    </div>
+</div>
+
+

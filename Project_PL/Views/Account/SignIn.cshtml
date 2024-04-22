@@ -1,0 +1,54 @@
+﻿@model SignInViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="~/Files/Images/signin-image.jpg" alt="sing up image"></figure>
+                <a asp-action="SignUp" class="signup-image-link">Create an account</a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Login</h2>
+                <div class="error-msg">
+                    @Html.ValidationSummary(true, "", new { @class = "bg-danger" })
+                </div>
+                <form asp-controller="Account" asp-action="SignIn" class="register-form" id="login-form">
+                    <div class="form-group">
+                        <label asp-for="Email"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input asp-for="@Model.Email" type="text" id="your_email" placeholder="Your Email" />
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"><i class="zmdi zmdi-lock"></i></label>
+                        <input asp-for="@Model.Password" type="password" id="your_pass" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="RemmeberMe" type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                        <label asp-for="RemmeberMe" for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                    </div>
+                    <div class="form-group">
+                        <a asp-action="ForgetPassword" class="signup-image-link">Forget Password</a>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="SignIn" />
+                    </div>
+                </form>
+                <div class="social-login">
+                    <span class="social-label">Or login with</span>
+                    <ul class="socials">
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

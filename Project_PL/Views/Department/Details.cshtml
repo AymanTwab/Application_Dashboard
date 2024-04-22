@@ -1,0 +1,21 @@
+﻿@model Department
+
+<div class="row">
+    <div class="col-6">
+        <form asp-controller="Department" asp-action="Update" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Id" class="form-label">Department Id</label>
+                <input asp-for="@Model.Id" value="@Model.Id" class="form-control" readonly>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Name" class="form-label">Department Name</label>
+                <input asp-for="@Model.Name" value="@Model.Name" class="form-control" readonly>
+            </div>
+
+            <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary">Update</a>
+            <a asp-action="Index" class="btn btn-dark">Back To List</a>
+        </form>
+    </div>
+</div>
+
+
